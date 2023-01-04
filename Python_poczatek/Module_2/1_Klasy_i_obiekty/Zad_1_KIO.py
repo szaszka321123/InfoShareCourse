@@ -10,11 +10,16 @@ class Apple:
 class Potato:
     pass
 
-jablko = Apple()
-ziemniak = Potato()
+green_apple = Apple()
+red_apple = Apple()
+young_potato = Potato()
+old_potato = Potato()
 
-print(type(jablko))
-print(type(ziemniak))
+print(type(green_apple))
+print(type(red_apple))
+print(type(young_potato))
+print(type(old_potato))
+
 products_dict = {
     "butter": Products(),
     "soap": Products(),

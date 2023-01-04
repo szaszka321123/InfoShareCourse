@@ -15,6 +15,13 @@ class Order:
             products = []
         self.products = products
 
+        total_price = 0
+        for product in products:
+            total_price +=product.price
+        self.total_price = total_price
+
+
+
 class Apple:
 
     def __init__(self, kind, size, price):
@@ -52,7 +59,27 @@ def zad_1_KiPO():
     print(empty_order)
     print(eny_order)
 
+def print_product(Product):
+    print(f"Twój produkt to: {Product.name} - Katergoria: {Product.cathegory} - Cena jednostkowa: {Product.price}")
+
+cookies = Product(name="Cookies", cathegory="Sweets", price=7.99)
+
+def prind_order(Order):
+    print("-" * 20)
+    print(f"Imię: {Order.first_name}")
+    print(f"Nazwisko: {Order.second_name}")
+    print(f"Wartość zamówienia {Order.total_price}zł")
+    for product in Order.products:
+        print("\t", end="")
+        print_product(product)
+    print("-" * 20)
+
+
+
+empty_order = Order(first_name="Daniel", second_name="Iwanowski", products=[cookies])
+
+
 if __name__ == "__main__":
     zad_1_KiPO()
-
-
+    print_product(cookies)
+    prind_order(empty_order)
