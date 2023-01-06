@@ -1,7 +1,7 @@
 from Store.klasa_Apple import Apple
 from Store.Klasa_Patato import Potato
-from Store.order_and_other import Order, prind_order, generator_order
-from Store.product_and_other import Product, print_product
+from Store.order_and_other import Order, generator_order
+from Store.product_and_other import Product
 
 
 
@@ -28,7 +28,7 @@ def run_example():
     eny_product = Product(name="Butter", cathegory="food", price=5.29)
     print(eny_product)
     cookies = Product(name="Cookies", cathegory="Sweets", price=7.99)
-    print_product(cookies)
+    cookies.print_product()
 
     print(f"\t")
     print("-" * 20)
@@ -42,14 +42,13 @@ def run_example():
     print("-" * 20)
 
     first_order = Order(first_name="Daniel", second_name="Iwanowski", products=[cookies])
-    prind_order(first_order)
+    first_order.prind_order()
 
     print(f"\t")
     print("-" * 20)
 
     eny_order = generator_order()
-    prind_order(eny_order)
-
+    eny_order.prind_order()
 
 
 if __name__ == "__main__":

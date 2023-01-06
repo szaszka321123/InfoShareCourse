@@ -5,10 +5,10 @@ class Product:
         self.cathegory = cathegory
         self.name = name
 
-eny_product = Product(name="Butter", cathegory="food", price=5.29)
 
-def print_product(message):
-    print(f"Twój produkt to: {cookies.name} - Katergoria: {cookies.cathegory} - Cena jednostkowa: {cookies.price}")
+
+    def print_product(self):
+        print(f"Twój produkt to: {self.name} - Katergoria: {self.cathegory} - Cena jednostkowa: {self.price}")
 
 cookies = Product(name="Cookies", cathegory="Sweets", price=7.99)
 
