@@ -1,3 +1,6 @@
+import random
+
+
 class Product:
 
     def __init__(self, name, cathegory, price):
@@ -17,7 +20,8 @@ class Order:
 
         total_price = 0
         for product in products:
-            total_price +=product.price
+            if product is int:
+                total_price += product
         self.total_price = total_price
 
 
@@ -55,12 +59,12 @@ def zad_1_KiPO():
     print(old_poatato)
 
     empty_order = Order(first_name="Daniel", second_name="Iwanowski")
-    eny_order = Order(first_name="Daniel", second_name="Iwanowski", products=[green_apple])
+    eny_order = Order(first_name="Daniel", second_name="Iwanowski", products=[cookies])
     print(empty_order)
     print(eny_order)
 
-def print_product(Product):
-    print(f"Twój produkt to: {Product.name} - Katergoria: {Product.cathegory} - Cena jednostkowa: {Product.price}")
+def print_product(message):
+    print(f"Twój produkt to: {cookies.name} - Katergoria: {cookies.cathegory} - Cena jednostkowa: {cookies.price}")
 
 cookies = Product(name="Cookies", cathegory="Sweets", price=7.99)
 
@@ -68,6 +72,7 @@ def prind_order(Order):
     print("-" * 20)
     print(f"Imię: {Order.first_name}")
     print(f"Nazwisko: {Order.second_name}")
+    print(f"Lista produktów {Order.products}")
     print(f"Wartość zamówienia {Order.total_price}zł")
     for product in Order.products:
         print("\t", end="")
@@ -76,10 +81,32 @@ def prind_order(Order):
 
 
 
-empty_order = Order(first_name="Daniel", second_name="Iwanowski", products=[cookies])
+first_order = Order(first_name="Daniel", second_name="Iwanowski", products=[cookies])
+
+def generator_order():
+    number_order = random.randint(1, 20)
+    for eny_number in range(number_order):
+        product_number = random.randint(1, 10)
+        product_list = []
+        for product in range(product_number):
+            new_product = f"Produkt {product}"
+            product_list.append(new_product)
+        new_order = Order(first_name="Imię klijęta", second_name="Nazwisko klijęta", products=product_list)
+
+    return new_order
+
+
+def run_example():
+    eny_order = generator_order()
+    prind_order(eny_order)
 
 
 if __name__ == "__main__":
     zad_1_KiPO()
+    print(f"\t")
+    print("-" * 20)
     print_product(cookies)
-    prind_order(empty_order)
+    prind_order(first_order)
+    run_example()
+
+
