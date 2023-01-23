@@ -51,5 +51,13 @@ def run_example():
     eny_order.prind_order()
 
 
+
+
+    total_price_apple = Apple(kind="Green", size="Medium", price=4.99)
+    print(f"Kompletna cena jabłek wynosi {total_price_apple.total_price_apple(weight=6)}")
+
+    total_price_potato = Potato(kind="Old", size="Medium", price=2.39)
+    print(f"Kompletna cena ziemniaków wynosi {total_price_potato.total_price_potato(weight_potato=11)}")
+
 if __name__ == "__main__":
     run_example()

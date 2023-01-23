@@ -5,3 +5,6 @@ class Apple:
         self.size = size
         self.price = price
 
+
+    def total_price_apple(self, weight):
+        return self.price * weight
