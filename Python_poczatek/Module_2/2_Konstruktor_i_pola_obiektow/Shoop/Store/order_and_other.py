@@ -24,23 +24,25 @@ class Order:
         print(f"Imię: {self.first_name}")
         print(f"Nazwisko: {self.second_name}")
         print(f"Wartość zamówienia {self.total_price}zł")
-        for product in self.positions_list:
+        for element in self.positions_list:
             print("\t", end="")
-            product.print_product()
+            element.print_positions()
         print("-" * 20)
 
 
 
 def generator_order():
     number_order = random.randint(1, 20)
-    product_list = []
+    position_list = []
     for eny_number in range(number_order):
         name_product = f"Produkt {eny_number}"
         cathegory = "Inne"
         product_number = random.randint(1, 10)
-        new_product = Product(name_product, cathegory, price={product_number})
-        product_list.append(new_product)
-    new_order = Order(first_name="Imię klijęta", second_name="Nazwisko klijęta", positions_list=product_list)
+        quantity_number = random.randint(1, 5)
+        new_product = Product(name=name_product, cathegory=cathegory, price={product_number})
+        new_position = OrderElement(product=new_product, quantity={quantity_number})
+        position_list.append(new_position)
+    new_order = Order(first_name="Imię klijęta", second_name="Nazwisko klijęta", positions_list=position_list)
 
     return new_order
 

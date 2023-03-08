@@ -7,7 +7,10 @@ from Store.product_and_other import Product
 
 def run_example():
 
-
+    first_order = generator_order()
+    first_order.prind_order()
+    second_order = generator_order()
+    second_order.prind_order()
 
 if __name__ == "__main__":
     run_example()

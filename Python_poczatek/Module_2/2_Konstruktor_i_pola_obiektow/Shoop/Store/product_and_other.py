@@ -1,9 +1,9 @@
 class Product:
 
     def __init__(self, name, cathegory, price):
-        self.price = price
-        self.cathegory = cathegory
         self.name = name
+        self.cathegory = cathegory
+        self.price = price
 
 
 
