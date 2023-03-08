@@ -8,7 +8,7 @@ class Product:
 
 
     def print_product(self):
-        print(f"Twój produkt to: {self.name} - Katergoria: {self.cathegory} - Cena jednostkowa: {self.price}")
+        print(f"Twój produkt to: {self.name} - Katergoria: {self.cathegory} - Cena jednostkowa: {self.price}/szt")
 
 
 
