@@ -38,10 +38,10 @@ def generator_order():
         name_product = f"Produkt {eny_number}"
         cathegory = "Inne"
         product_number = random.randint(1, 10)
+        new_product = Product(name=name_product, cathegory=cathegory, price=product_number)
         quantity_number = random.randint(1, 5)
-        new_product = Product(name=name_product, cathegory=cathegory, price={product_number})
-        new_position = OrderElement(product=new_product, quantity={quantity_number})
-        position_list.append(new_position)
+        position_list.append(OrderElement(product=new_product, quantity=quantity_number))
+
     new_order = Order(first_name="Imię klijęta", second_name="Nazwisko klijęta", positions_list=position_list)
 
     return new_order
