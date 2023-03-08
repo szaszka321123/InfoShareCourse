@@ -10,5 +10,5 @@ class Product:
     def print_product(self):
         print(f"Twój produkt to: {self.name} - Katergoria: {self.cathegory} - Cena jednostkowa: {self.price}")
 
-cookies = Product(name="Cookies", cathegory="Sweets", price=7.99)
+
 

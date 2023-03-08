@@ -9,10 +9,10 @@ class Order:
             products = []
         self.products = products
 
+    def total_price(self):
         total_price = 0
-        for product in products:
-            if product is int:
-                total_price += product
+        for product in self.products:
+            total_price += product.price
         self.total_price = total_price
 
 
