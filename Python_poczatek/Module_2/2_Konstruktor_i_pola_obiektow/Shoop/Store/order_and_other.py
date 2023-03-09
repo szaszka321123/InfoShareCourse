@@ -19,15 +19,18 @@ class Order:
 
 
 
-    def prind_order(self):
-        print("-" * 20)
-        print(f"Imię: {self.first_name}")
-        print(f"Nazwisko: {self.second_name}")
-        print(f"Wartość zamówienia {self.total_price}zł")
+    def __str__(self):
+        information_result = f"\n Imię: {self.first_name}| Nazwisko: {self.second_name} \n Wartość zamówienia {self.total_price}"
+        product_result = "\t Zamówione produkty:\n"
         for element in self.positions_list:
-            print("\t", end="")
-            element.print_positions()
-        print("-" * 20)
+            product_result += f"\t{element}\n"
+
+        result = "\n".join([information_result, product_result])
+        return result
+
+
+
+
 
 
 
@@ -42,7 +45,7 @@ def generator_order():
         quantity_number = random.randint(1, 5)
         position_list.append(OrderElement(product=new_product, quantity=quantity_number))
 
-    new_order = Order(first_name="Imię klijęta", second_name="Nazwisko klijęta", positions_list=position_list)
+    new_order = Order(first_name="Daniel", second_name="Iwanowski", positions_list=position_list)
 
     return new_order
 

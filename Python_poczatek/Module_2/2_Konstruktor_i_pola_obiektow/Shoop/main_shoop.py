@@ -6,9 +6,9 @@ from Store.product_and_other import Product
 def run_example():
 
     first_order = generator_order()
-    first_order.prind_order()
+    print(first_order)
     second_order = generator_order()
-    second_order.prind_order()
+    print(second_order)
 
 if __name__ == "__main__":
 

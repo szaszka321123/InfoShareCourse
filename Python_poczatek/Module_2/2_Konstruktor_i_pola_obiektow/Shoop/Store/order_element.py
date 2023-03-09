@@ -7,8 +7,8 @@ class OrderElement:
 
     def calculate_order_elements_price(self):
         return self.product.price * self.quantity
-    def print_positions(self):
-        self.product.print_product()
-        print(f" x {self.quantity}")
+    def __str__(self):
+        return f"{str(self.product)} \n x {self.quantity}"
+
 
 
