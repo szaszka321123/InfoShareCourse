@@ -17,8 +17,6 @@ class Order:
             total_price += elements.calculate_order_elements_price()
         return total_price
 
-
-
     def __str__(self):
         information_result = f"\n Imię: {self.first_name}| Nazwisko: {self.second_name} \n Wartość zamówienia {self.total_price}"
         product_result = "\t Zamówione produkty:\n"
@@ -27,10 +25,8 @@ class Order:
 
         result = "\n".join([information_result, product_result])
         return result
-
-
-
-
+    def __len__(self):
+        return len(self.positions_list)
 
 
 
