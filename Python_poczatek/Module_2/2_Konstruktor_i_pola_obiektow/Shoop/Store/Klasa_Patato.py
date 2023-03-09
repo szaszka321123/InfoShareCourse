@@ -9,4 +9,5 @@ class Potato:
    def total_price_potato(self):
         return self.price * self.weight_potato
    def __repr__(self):
-       return f"Rodzaj ziemniaków: {self.kind} \n Rozmiar: {self.size} \n Cena za Kg: {self.price} \n Całkowiny koszt: {self.total_price_potato()}"
+       return f"Rodzaj ziemniaków: {self.kind} \n Rozmiar: {self.size} \n " \
+              f"Cena za Kg: {self.price} \n Całkowiny koszt: {self.total_price_potato()}"

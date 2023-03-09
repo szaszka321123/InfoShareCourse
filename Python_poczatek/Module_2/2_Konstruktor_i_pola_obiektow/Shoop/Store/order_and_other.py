@@ -8,33 +8,37 @@ class Order:
         self.first_name = first_name
         if positions_list is None:
             positions_list = []
-        self.positions_list = positions_list
-        self.total_price = self.total_price_elements()
+        self._positions_list = positions_list
+        self.total_price = self._total_price_elements()
 
-    def total_price_elements(self):
+    def _total_price_elements(self):
         total_price = 0
-        for elements in self.positions_list:
+        for elements in self._positions_list:
             total_price += elements.calculate_order_elements_price()
         return total_price
+
+    def add_new_product(self, product, quantity):
+        self._positions_list.append(OrderElement(product, quantity))
+        self.total_price = self._total_price_elements()
 
     def __str__(self):
         information_result = f"\n Imię: {self.first_name}| Nazwisko: {self.second_name} \n Wartość zamówienia {self.total_price}"
         product_result = "\t Zamówione produkty:\n"
-        for element in self.positions_list:
+        for element in self._positions_list:
             product_result += f"\t{element}\n"
 
         result = "\n".join([information_result, product_result])
         return result
     def __len__(self):
-        return len(self.positions_list)
+        return len(self._positions_list)
     def __eq__(self, other):
         if self.__class__ != other.__class__:
             return NotImplemented
-        if len(self.positions_list) != len(other.positions_list):
+        if len(self._positions_list) != len(other._positions_list):
             return False
         if self.first_name != other.first_name or self.second_name != other.second.name:
             return False
-        for position_list in self.positions_list:
+        for position_list in self._positions_list:
             if position_list not in other.positions_list:
                 return False
         return True

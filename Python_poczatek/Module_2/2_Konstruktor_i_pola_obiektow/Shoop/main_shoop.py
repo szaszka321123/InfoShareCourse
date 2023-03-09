@@ -30,6 +30,14 @@ def run_example():
     print(first_order == second_order)
     print(other_salat == new_other_order)
 
+    print("\n\n")
+
+    third_order = generator_order()
+    print(third_order)
+    new_product = Product(name="Maka", cathegory="Food", price=10.99)
+    third_order.add_new_product(product=new_product, quantity=6)
+    print(third_order)
+
 
 if __name__ == "__main__":
 
