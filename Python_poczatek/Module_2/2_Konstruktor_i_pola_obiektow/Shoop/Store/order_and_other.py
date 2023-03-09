@@ -27,6 +27,17 @@ class Order:
         return result
     def __len__(self):
         return len(self.positions_list)
+    def __eq__(self, other):
+        if self.__class__ != other.__class__:
+            return NotImplemented
+        if len(self.positions_list) != len(other.positions_list):
+            return False
+        if self.first_name != other.first_name or self.second_name != other.second.name:
+            return False
+        for position_list in self.positions_list:
+            if position_list not in other.positions_list:
+                return False
+        return True
 
 
 
