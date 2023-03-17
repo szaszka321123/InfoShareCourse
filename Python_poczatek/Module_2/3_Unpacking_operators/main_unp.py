@@ -1,8 +1,14 @@
-from exercises.exerc_1 import connection_writting
+from exercises.exerc_2 import named_arguments
 
 def run_example():
-    exercises_1 = connection_writting("Lubię", "jeść", "jabłka")
-    print(exercises_1)
+
+    new = named_arguments(
+        Imię = "Daniel",
+        Nazwisko = "Iwanowski",
+        Wiek = 26,
+        Wzrost = 187
+    )
+    print(new)
 
 
 if __name__ == "__main__":
