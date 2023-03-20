@@ -64,22 +64,3 @@ class Order:
             if position_list not in other.positions_list:
                 return False
         return True
-
-
-    @classmethod
-    def generator_order(cls):
-        number_order = random.randint(1, 40)
-        position_list = []
-        for eny_number in range(number_order):
-            name_product = f"Produkt {eny_number}"
-            cathegory = "Inne"
-            product_number = random.randint(1, 10)
-            new_product = Product(name=name_product, cathegory=cathegory, price=product_number)
-            quantity_number = random.randint(1, 5)
-            position_list.append(OrderElement(product=new_product, quantity=quantity_number))
-
-        new_order = Order(first_name="Daniel", second_name="Iwanowski", positions_list=position_list)
-
-        return new_order
-
-
