@@ -72,3 +72,25 @@ class Order:
             self._positions_list = value
         else:
             self._positions_list = value[:Order.MAX_ORDER_ELEMENT_LIMIT]
+
+class ExpressOrder(Order):
+
+    EXPRESS_DELIVERY_FEE = 4.99
+
+    def __init__(self, first_name, second_name, position_list, discount_policy, delivery):
+        super(ExpressOrder, self).__init__(first_name, second_name, position_list, discount_policy)
+        self.delivery = delivery
+
+    def delivery_fee(self):
+        return self.total_price + ExpressOrder.EXPRESS_DELIVERY_FEE
+
+    def __str__(self):
+        information_result = f"Expresowe zamówienie złożone przez:" \
+                             f"\n Imię: {self.first_name} | Nazwisko: {self.second_name} \n Wartość zamówienia {self.total_price} zł \n" \
+                             f" Termin dostawy: {self.delivery} \n Koszt dostawy doliczony do wartości zamówienia {self.delivery_fee()} zł"
+        product_result = "\t Zamówione produkty:\n"
+        for element in self._positions_list:
+            product_result += f"\t{element}\n"
+
+        result = "\n".join([information_result, product_result])
+        return result
