@@ -13,15 +13,34 @@ def run_example():
 
     imie = "Daniel"
     nazwisko = "Iwanowski"
-    new_order_list = generator_order(15)
+    new_order_list = generator_order(10)
     new_order = ExpressOrder(
         first_name=imie,
         second_name=nazwisko,
         position_list=new_order_list,
-        discount_policy="normal_customer",
+        discount_policy="normal_policy",
         delivery="24.03.2023"
         )
+
+    second_order = ExpressOrder(
+        first_name=imie,
+        second_name=nazwisko,
+        position_list=new_order_list,
+        discount_policy=10,
+        delivery="24.03.2023"
+        )
+
+    third_order = ExpressOrder(
+        first_name=imie,
+        second_name=nazwisko,
+        position_list=new_order_list,
+        discount_policy=0.06,
+        delivery="24.03.2023"
+        )
+
     print(new_order)
+    print(second_order)
+    print(third_order)
 
 
 

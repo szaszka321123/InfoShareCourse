@@ -1,7 +1,7 @@
 from Store.product_and_other import Product
 from Store.order_element import OrderElement
 import random
-from Store.discount_policy import chrismas_discountu, constant_customer, normal_customer
+from Store.discount_policy import DiscountPolicy, AbsoluteDiscount, PercentageDiscount
 class Order:
 
     MAX_ORDER_ELEMENT_LIMIT = 20
@@ -15,7 +15,7 @@ class Order:
         else:
             self._positions_list = positions_list
         if discount_policy is None:
-            discount_policy = normal_customer
+            discount_policy = "normal_policy"
         self.discount = discount_policy
 
     @property
@@ -23,13 +23,17 @@ class Order:
         total_price = 0
         for elements in self._positions_list:
             total_price += elements.calculate_order_elements_price()
-        if self.discount != normal_customer:
-            if self.discount == "constant_customer":
-                return constant_customer(total_price)
+        if self.discount != "normal_policy":
+            if self.discount >= 1:
+                result = AbsoluteDiscount(value_discount=self.discount)
+                return result.apply_discount(total_price)
+            elif self.discount > 0:
+                result = PercentageDiscount(percent_discount=self.discount)
+                return result.apply_discount(total_price)
             else:
-                return chrismas_discountu(total_price)
+                print(f"Wpisano nieodpowiednią wartość rabatu")
         else:
-            return normal_customer(total_price)
+            return DiscountPolicy.apply_discount(self.discount, total_price)
 
 
     def add_new_product(self, product, quantity):
