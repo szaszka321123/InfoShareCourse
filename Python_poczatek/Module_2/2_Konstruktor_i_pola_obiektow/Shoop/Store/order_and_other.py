@@ -17,9 +17,9 @@ class Order:
         if discount_policy is None:
             discount_policy = normal_customer
         self.discount = discount_policy
-        self.total_price = self._total_price_elements()
 
-    def _total_price_elements(self):
+    @property
+    def total_price(self):
         total_price = 0
         for elements in self._positions_list:
             total_price += elements.calculate_order_elements_price()
@@ -31,12 +31,12 @@ class Order:
         else:
             return normal_customer(total_price)
 
+
     def add_new_product(self, product, quantity):
         if len(self._positions_list) >= Order.MAX_ORDER_ELEMENT_LIMIT:
             print(f"Brak możliwości dodania produktu, przekroczono limit w zamówieniu")
         else:
             self._positions_list.append(OrderElement(product, quantity))
-            self.total_price = self._total_price_elements()
 
     def __str__(self):
         information_result = f"\n Imię: {self.first_name}| Nazwisko: {self.second_name} \n Wartość zamówienia {self.total_price}"
@@ -72,4 +72,3 @@ class Order:
             self._positions_list = value
         else:
             self._positions_list = value[:Order.MAX_ORDER_ELEMENT_LIMIT]
-        self.total_price = self._total_price_elements()
