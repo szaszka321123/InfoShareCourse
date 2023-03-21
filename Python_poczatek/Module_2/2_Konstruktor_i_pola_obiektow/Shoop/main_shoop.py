@@ -15,8 +15,12 @@ def run_example():
     position_list = generator_order()
     new_order = Order(first_name="Daniel", second_name="Iwanowski", positions_list=position_list)
     print(new_order)
-    for any_items in new_order.position_list:
-        print(any_items)
+
+    new_order.position_list = generator_order(10)
+    print(new_order)
+
+    new_order.position_list = generator_order(1000)
+    print(new_order)
 
 
 if __name__ == "__main__":

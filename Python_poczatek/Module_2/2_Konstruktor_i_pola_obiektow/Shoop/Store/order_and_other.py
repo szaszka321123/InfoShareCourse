@@ -19,12 +19,6 @@ class Order:
         self.discount = discount_policy
         self.total_price = self._total_price_elements()
 
-
-    @property
-    def position_list(self):
-        return self._positions_list
-
-
     def _total_price_elements(self):
         total_price = 0
         for elements in self._positions_list:
@@ -36,7 +30,6 @@ class Order:
                 return chrismas_discountu(total_price)
         else:
             return normal_customer(total_price)
-
 
     def add_new_product(self, product, quantity):
         if len(self._positions_list) >= Order.MAX_ORDER_ELEMENT_LIMIT:
@@ -53,12 +46,14 @@ class Order:
 
         result = "\n".join([information_result, product_result])
         return result
+
     def __len__(self):
         return len(self._positions_list)
+
     def __eq__(self, other):
         if self.__class__ != other.__class__:
             return NotImplemented
-        if len(self._positions_list) != len(other._positions_list):
+        if len(self._positions_list) != len(other.positions_list):
             return False
         if self.first_name != other.first_name or self.second_name != other.second.name:
             return False
@@ -66,3 +61,15 @@ class Order:
             if position_list not in other.positions_list:
                 return False
         return True
+
+    @property
+    def position_list(self):
+        return self._positions_list
+
+    @position_list.setter
+    def position_list(self, value):
+        if len(value) <= Order.MAX_ORDER_ELEMENT_LIMIT:
+            self._positions_list = value
+        else:
+            self._positions_list = value[:Order.MAX_ORDER_ELEMENT_LIMIT]
+        self.total_price = self._total_price_elements()
