@@ -1,12 +1,7 @@
-from Store.klasa_Apple import Apple
-from Store.Klasa_Patato import Potato
-from Store.order_and_other import Order, ExpressOrder
-from Store.product_and_other import Product, ExpiringProduct
-from Store.order_element import OrderElement
-from Store.klasa_TaxCalculator import TaxCalculator
+from Store.order_and_other import ExpressOrder
 from Store.date_generator import generator_order
-
-import random
+from Store.discount_policy import PercentageDiscount, AbsoluteDiscount
+from Store.order_and_other import ExpressOrder
 
 
 def run_example():
@@ -14,11 +9,15 @@ def run_example():
     imie = "Daniel"
     nazwisko = "Iwanowski"
     new_order_list = generator_order(10)
+    twenty_zloty_discount = AbsoluteDiscount(value_discount=20)
+    ten_percent_discount = PercentageDiscount(percent_discount=0.1)
+
+
     new_order = ExpressOrder(
         first_name=imie,
         second_name=nazwisko,
         position_list=new_order_list,
-        discount_policy="normal_policy",
+        discount_policy=None,
         delivery="24.03.2023"
         )
 
@@ -26,7 +25,7 @@ def run_example():
         first_name=imie,
         second_name=nazwisko,
         position_list=new_order_list,
-        discount_policy=10,
+        discount_policy=twenty_zloty_discount,
         delivery="24.03.2023"
         )
 
@@ -34,7 +33,7 @@ def run_example():
         first_name=imie,
         second_name=nazwisko,
         position_list=new_order_list,
-        discount_policy=0.06,
+        discount_policy=ten_percent_discount,
         delivery="24.03.2023"
         )
 

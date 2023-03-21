@@ -15,7 +15,7 @@ class Order:
         else:
             self._positions_list = positions_list
         if discount_policy is None:
-            discount_policy = "normal_policy"
+            discount_policy = DiscountPolicy()
         self.discount = discount_policy
 
     @property
@@ -23,17 +23,7 @@ class Order:
         total_price = 0
         for elements in self._positions_list:
             total_price += elements.calculate_order_elements_price()
-        if self.discount != "normal_policy":
-            if self.discount >= 1:
-                result = AbsoluteDiscount(value_discount=self.discount)
-                return result.apply_discount(total_price)
-            elif self.discount > 0:
-                result = PercentageDiscount(percent_discount=self.discount)
-                return result.apply_discount(total_price)
-            else:
-                print(f"Wpisano nieodpowiednią wartość rabatu")
-        else:
-            return DiscountPolicy.apply_discount(self.discount, total_price)
+        return self.discount.apply_discount(total_price)
 
 
     def add_new_product(self, product, quantity):
