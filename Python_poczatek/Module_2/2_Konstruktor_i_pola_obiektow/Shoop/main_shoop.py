@@ -7,21 +7,17 @@ from Store.klasa_TaxCalculator import TaxCalculator
 from Store.date_generator import generator_order
 
 import random
-def sort_list(order):
-    return order.total_price
+
 
 def run_example():
 
 
     position_list = generator_order()
     new_order = Order(first_name="Daniel", second_name="Iwanowski", positions_list=position_list)
-    constant_order = Order(first_name="Daniel", second_name="Iwanowski", positions_list=position_list, discount_policy="constant_customer")
-    chrismas_order = Order(first_name="Daniel", second_name="Iwanowski", positions_list=position_list, discount_policy="chrismas_customer")
+    print(new_order)
+    for any_items in new_order.position_list:
+        print(any_items)
 
-    print(new_order)
-    print(new_order)
-    print(constant_order)
-    print(chrismas_order)
 
 if __name__ == "__main__":
 

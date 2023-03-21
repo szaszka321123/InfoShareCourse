@@ -20,7 +20,9 @@ class Order:
         self.total_price = self._total_price_elements()
 
 
-
+    @property
+    def position_list(self):
+        return self._positions_list
 
 
     def _total_price_elements(self):
