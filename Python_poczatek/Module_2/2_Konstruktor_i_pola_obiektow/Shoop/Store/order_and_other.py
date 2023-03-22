@@ -75,13 +75,14 @@ class ExpressOrder(Order):
         super(ExpressOrder, self).__init__(first_name, second_name, position_list, discount_policy)
         self.delivery = delivery
 
+    @property
     def delivery_fee(self):
-        return self.total_price + ExpressOrder.EXPRESS_DELIVERY_FEE
+        return super().total_price + ExpressOrder.EXPRESS_DELIVERY_FEE
 
     def __str__(self):
         information_result = f"Expresowe zamówienie złożone przez:" \
                              f"\n Imię: {self.first_name} | Nazwisko: {self.second_name} \n Wartość zamówienia {self.total_price} zł \n" \
-                             f" Termin dostawy: {self.delivery} \n Koszt dostawy doliczony do wartości zamówienia {self.delivery_fee()} zł"
+                             f" Termin dostawy: {self.delivery} \n Koszt dostawy doliczony do wartości zamówienia {self.delivery_fee} zł"
         product_result = "\t Zamówione produkty:\n"
         for element in self._positions_list:
             product_result += f"\t{element}\n"
