@@ -1,16 +1,11 @@
 from Zadania import int_oraz_float
 import math
-
+from Zadania import str_czyli_napis
 
 def run_example():
-    name = input(f"Podaj swoje imię przybyszu: ")
-    surname = input(f"Podaj swoje nazwisko przybyszu: ")
 
-    clear_name = name.strip()
-    clear_surname = surname.strip()
-
-    print(f"Witaj {clear_name} {clear_surname}")
-
+    any_id = str_czyli_napis.draw_id()
+    print(any_id)
 
 
 
