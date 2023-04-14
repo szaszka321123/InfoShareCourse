@@ -3,8 +3,13 @@ import math
 
 
 def run_example():
+    name = input(f"Podaj swoje imię przybyszu: ")
+    surname = input(f"Podaj swoje nazwisko przybyszu: ")
 
-    print(int_oraz_float.int_float_run_example())
+    clear_name = name.strip()
+    clear_surname = surname.strip()
+
+    print(f"Witaj {clear_name} {clear_surname}")
 
 
 
