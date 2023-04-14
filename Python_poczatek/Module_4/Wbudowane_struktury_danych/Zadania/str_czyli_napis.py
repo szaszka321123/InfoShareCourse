@@ -17,6 +17,13 @@ def draw_id():
 
     return new_id
 
+def user_colors():
+    the_best_user_colors = input(f"Witaj przybyszu, podaj swoje ulubione kolory oddzielając je tylko przecinkiem: ")
+    result = the_best_user_colors.rfind("niebieski")
+    if result > 0:
+        return print(f"Wsrod twoich ulubionych kolorow znajduje sie koloro niebieski SUPER!!!")
+    else:
+        return print(f"Nie lubisz niebieskiego?")
 
 
 
