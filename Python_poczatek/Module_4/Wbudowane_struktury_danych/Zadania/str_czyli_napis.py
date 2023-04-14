@@ -7,7 +7,7 @@ def name_and_surname():
     clear_name = name.strip()
     clear_surname = surname.strip()
 
-    print(f"Witaj {clear_name} {clear_surname}")
+    print("Witaj {0} {1}".format(clear_name, clear_surname))
 
 
 def draw_id():
@@ -24,6 +24,8 @@ def user_colors():
         return print(f"Wsrod twoich ulubionych kolorow znajduje sie koloro niebieski SUPER!!!")
     else:
         return print(f"Nie lubisz niebieskiego?")
+
+
 
 
 
